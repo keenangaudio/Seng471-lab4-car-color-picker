@@ -3,9 +3,10 @@
 @section('head')
 <style type="text/css">
     .color_button {
-        /*margin: 5px;*/
+        margin: 1.6%;
         color:white;
-        float: right
+        min-width:15%;
+        /*float: right*/
     }
     /*<style>*/
     .car{ 
@@ -41,27 +42,32 @@
                 </div>
                 <div class="card-footer">
                     <? $colors = [
-                        "blue", "green", "red", "purple",
+                        'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive',
+                        'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
                         ] ?>
                     <div>
-                        <h3 style="display: inline-block;">
+                        <h3 style="display: inline;">
                             Exterior:
                         </h3>
+                        <div style="width: 100%;overflow-x: scroll">
                         @foreach( $colors as $color)
                             <button class="btn color_button" style="background-color: {{ $color }};" onclick="exterior('{{ $color }}')">
                                 {{ strtoupper($color) }}
                             </button>
                         @endforeach
+                        </div>
                     </div>
                     <div>
-                        <h3 style="display: inline-block;">
+                        <h3 style="display: inline;">
                             Interior:
                         </h3>
+                        <div style="width: 100%;overflow-x: scroll">
                         @foreach( $colors as $color)
                             <button class="btn color_button" style="background-color: {{ $color }};" onclick="interior('{{ $color }}')">
                                 {{ strtoupper($color) }}
                             </button>
                         @endforeach
+                        </div>
                     </div>
                     <script type="text/javascript">
                         function exterior(color) {
@@ -77,3 +83,4 @@
     </div>
 </div>
 @endsection
+'White', 'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive', 'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
