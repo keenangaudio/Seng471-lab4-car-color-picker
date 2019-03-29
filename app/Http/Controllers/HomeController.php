@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $colors = [
+            'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive',
+            'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
+        ];
+        return view('home')->with('colors',$colors);
     }
 }

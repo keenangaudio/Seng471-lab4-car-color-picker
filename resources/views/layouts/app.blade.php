@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    @yield('head')
+    @yield('head-spot')
 </head>
 <body>
     <div id="app">
