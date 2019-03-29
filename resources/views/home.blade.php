@@ -9,11 +9,11 @@
         /*float: right*/
     }
     .color_section {
-        height: 100px; 
-        overflow-y: scroll;
+        /*height: 100px; */
+        /*overflow-y: scroll;*/
     }
     .car{ 
-        fill:red;
+        fill:aqua;
         stroke-miterlimit:10;
     }
     .car_accent {
@@ -32,7 +32,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">Customize Your Vehicle</div>
                 
