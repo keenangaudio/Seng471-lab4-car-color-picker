@@ -38,7 +38,7 @@
                 
                 <div class="card-body">
                     <div id="carSelector" class="carousel slide">
-                        <div class="carousel-inner">
+                        <div class="carousel-inner" >
                             <div class="carousel-item active">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065 526">
                                     <title>car</title>
@@ -82,7 +82,7 @@
                                 </svg>
                             </div>
                             <div class="carousel-item">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 643.5 356.48">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 643.5 356.48" style="transform: scale(0.75);">
                                     <title>bike</title>
                                     <circle cx="87.25" cy="269.23" r="87.25"/>
                                     <circle cx="556.25" cy="269.23" r="87.25"/>
