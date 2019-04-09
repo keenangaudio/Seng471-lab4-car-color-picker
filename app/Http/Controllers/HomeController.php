@@ -24,16 +24,34 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $cars= [
+          "2019 Porsche 911","Jaguar I-Pace Electric SUV","2019 Mercedes-Benz Sprinter Crew Van","Ford F150 Supercharger","Dodge Tomahawk"
+        ];
+
         if(auth()->user()->isAdmin){
             $users = User::all()->where('isAdmin', false);
-            return view('users')->with('users', $users);
+            return view('users')
+                            ->with('users', $users)
+                            ->with('cars',  $cars);
         }
         else{
             $colors = [
                 'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive',
                 'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
             ];
-            return view('home')->with('colors',$colors);
+
+            $active_cars = ["", "", "", "", ""];
+            
+            $active_cars[auth()->user()->carModel] = "active";
+
+            return view('home')
+                            ->with('cars',        $cars)
+                            ->with('colors',      $colors)
+                            ->with('active_cars', $active_cars)
+                            ->with('accent',      auth()->user()->carAccentColor)
+                            ->with('interior',    auth()->user()->carSeatColor)
+                            ->with('car',         auth()->user()->carColor)
+                            ->with('trim',        auth()->user()->trim);
         }
     }
 

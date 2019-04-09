@@ -31,10 +31,11 @@ Route::patch('home/edit/update', 'HomeController@update')->name('update');
 Route::get('submitInfo/{info}', function($info){
     $infoArr = explode(",",$info);
     DB::table('users')->where('id', auth()->user()->id)->update([
-    	'carColor' => $infoArr[0],
-    	'carAccentColor' => $infoArr[1],
-    	'carSeatColor' => $infoArr[2],
-    	'trim' => $infoArr[3]
+    	'carModel' => $infoArr[0],
+    	'carColor' => $infoArr[1],
+    	'carAccentColor' => $infoArr[2],
+    	'carSeatColor' => $infoArr[3],
+    	'trim' => $infoArr[4]
     ]);
     echo "Done";
 });

@@ -21,16 +21,18 @@
 	<table style="width:100%">
 		<tr>
 			<th>Name</th>
+			<th>Car Model</th>
 			<th>Car Color</th>
 			<th>Car Accent Color</th>
 			<th>Car Seat Color</th>
 			<th>Trim</th>
 		</tr>
-
+		
 	@foreach ($users as $user)
 	<a href=>
 		<tr class='clickableRow' data-href="/users/{{$user->id}}">
 	        <td>{{$user->name}}</td>
+	        <td>{{$cars[$user->carModel]}}</td>
 			<td>{{$user->carColor}}</td>
 			<td>{{$user->carAccentColor}}</td>
 			<td>{{$user->carSeatColor}}</td>

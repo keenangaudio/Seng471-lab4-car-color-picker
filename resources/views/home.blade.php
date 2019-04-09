@@ -45,8 +45,8 @@
 
                     <div id="carSelector" class="carousel slide">
                         <div class="carousel-inner">
-                            <div class="carousel-item active" id="0">
-                                <h3>2019 Porsche 911</h3>
+                            <div class="carousel-item {{ $active_cars[0] }}" id="0">
+                                <h3>{{ $cars[0] }}</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065 526">
                                     <title>car</title>
                                     <path class="car" d="M115,566V443.36A97.36,97.36,0,0,1,212.36,346h39.28A97.36,97.36,0,0,0,349,248.64V224.36A97.36,97.36,0,0,1,446.36,127H847.64A97.36,97.36,0,0,1,945,224.36v24.28A97.36,97.36,0,0,0,1042.36,346h39.28A97.36,97.36,0,0,1,1179,443.36V566h-55.12c1.69-56.91-44.74-104.59-101.38-104.5S919.75,509.21,921.44,566H369.49c1.65-57.4-44.26-105.29-100-106.5C212.13,458.26,163.36,506.89,165,566ZM698.5,169.5h-298l-3,363h298Z" transform="translate(-114.5 -126.5)"/>
@@ -56,8 +56,8 @@
                                     <circle cx="909.25" cy="438.75" r="87.25"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item" id="1">
-                              <h3>Jaguar I-Pace Electric SUV</h3>
+                            <div class="carousel-item {{ $active_cars[1] }}" id="1">
+                              <h3>{{ $cars[1] }}</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065.23 527">
                                     <title>suv</title>
                                     <path class="car" d="M116,565V442.36A97.36,97.36,0,0,1,213.36,345h39.28A97.36,97.36,0,0,0,350,247.64V223.36A97.36,97.36,0,0,1,447.36,126l492.34.34c133,.09,240.68,108,240.53,241L1180,565h-55.12c1.69-56.91-44.74-104.59-101.38-104.5S920.75,508.21,922.44,565H370.49c1.65-57.4-44.26-105.29-100-106.5C213.13,457.26,164.36,505.89,166,565ZM699.5,168.5h-298l-3,363h298Z" transform="translate(-115.5 -125.5)"/>
@@ -68,8 +68,8 @@
                                     <rect class="window" x="615.5" y="54.5" width="171" height="171" rx="8.15"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item" id="2">
-                              <h3>2019 Mercedes-Benz Sprinter Crew Van</h3>
+                            <div class="carousel-item {{ $active_cars[2] }}" id="2">
+                              <h3>{{ $cars[2] }}</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065.23 526.66">
                                     </defs><title>van</title>
                                     <path class="car" d="M116,565l.23-197.67c.15-133.06,108-240.85,241.1-240.88l582.37-.11c133,.09,240.68,108,240.53,241L1180,565h-55a.07.07,0,0,1-.07-.08c1.64-56.87-44.77-104.51-101.39-104.42S920.76,508.2,922.44,565l0,0H370.68a.18.18,0,0,1-.18-.19c1.54-57.32-44.33-105.1-100-106.31C213.13,457.26,164.36,505.89,166,565ZM699.5,168.5h-298l-3,363h298Z" transform="translate(-115.5 -125.84)"/>
@@ -81,8 +81,8 @@
                                     <path class="window" d="M200.71,180H352.29a9.71,9.71,0,0,1,9.71,9.71v53.06A108.23,108.23,0,0,1,253.77,351H200.71a9.71,9.71,0,0,1-9.71-9.71V189.71A9.71,9.71,0,0,1,200.71,180Z" transform="translate(437.5 405.16) rotate(-180)"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item" id="3">
-                                <h3>Ford F150 Supercharger</h3>
+                            <div class="carousel-item {{ $active_cars[3] }}" id="3">
+                                <h3>{{ $cars[3] }}</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065 566">
                                     <title>truck</title>
                                     <path class="car" d="M115.5,563.53V446.83A100.33,100.33,0,0,1,215.83,346.5h33.34A100.33,100.33,0,0,0,349.5,246.17V227.83A100.33,100.33,0,0,1,449.83,127.5H652.28a18.22,18.22,0,0,1,18.22,18.22V328.28a18.22,18.22,0,0,0,18.22,18.22h476.33A14.45,14.45,0,0,1,1179.5,361V563.53a3,3,0,0,1-3,3h-49.28a3,3,0,0,1-3-2.87c-2.64-67.6-59.78-121-125.8-119.13C935,446.27,882.05,498.63,879.58,563.67a3,3,0,0,1-3,2.83l-241.36-.25L403.58,566a3,3,0,0,1-2.93-2.56c-9.18-61.32-63.4-105.83-123.15-102.94-55.86,2.7-103.43,46.17-111.63,103.42a3,3,0,0,1-2.94,2.58H118.47A3,3,0,0,1,115.5,563.53ZM629,169.5H383.47L381,478H626.53Z" transform="translate(-115 -127)"/>
@@ -91,8 +91,8 @@
                                     <circle cx="885.5" cy="439.5" r="110.5"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item" id="4">
-                              <h3>Dodge Tomahawk</h3>
+                            <div class="carousel-item {{ $active_cars[4] }}" id="4">
+                              <h3>{{ $cars[4] }}</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 643.5 356.48" style="transform: scale(0.75);">
                                     <title>bike</title>
                                     <circle cx="87.25" cy="269.23" r="87.25"/>
@@ -163,6 +163,8 @@
                         var globaCarAccentColor = 'blue';
                         var gloabalSeatColor = 'blue';
                         var globalTrim = 1;
+                        var globalCar = $('.carousel-item.active:first').attr('id');
+
                         $(document).ready(function() {
                             // $( ".stroke_slider" ).slider( "enable" );
                             $('.carousel').carousel('pause');
@@ -172,6 +174,11 @@
                                 globalTrim = width;
                                 $('.seat').css("stroke-width",width + 'px');
                             })
+
+                            colorize('.car_accent','{{ $accent }}');
+                            colorize('.seat','{{ $interior }}');
+                            colorize('.car','{{ $car }}');
+                            $('#formControlRange').val({{ $trim }});
                         });
 
                         function colorize(el, color) {
@@ -195,13 +202,16 @@
                             console.log(gloabalSeatColor);
                             console.log(globalTrim);
 
+                            globalCar = $('.carousel-item.active:first').attr('id');
+                            console.log(globalCar);
                             var xmlhttp = new XMLHttpRequest();
                             xmlhttp.onreadystatechange = function() {
                                 if (this.readyState == 4 && this.status == 200) {
                                   this.innerHtml = this.responseText;
                                 }
                               };
-                            xmlhttp.open("GET", "/submitInfo/"+globalCarColor+","+globaCarAccentColor+","+gloabalSeatColor+","+parseInt(globalTrim), true);
+
+                            xmlhttp.open("GET", "/submitInfo/"+parseInt(globalCar)+","+globalCarColor+","+globaCarAccentColor+","+gloabalSeatColor+","+parseInt(globalTrim), true);
                             xmlhttp.send();
                         }
                     </script>
