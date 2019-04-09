@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/home/view', 'HomeController@show')->name('users');
+
+Route::get('/home/save', 'HomeController@store');
+
+Route::get('home/edit/{user}', 'HomeController@edit');
+
+Route::patch('home/edit/update', 'HomeController@update')->name('update');

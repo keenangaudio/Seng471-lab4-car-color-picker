@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -29,4 +30,43 @@ class HomeController extends Controller
         ];
         return view('home')->with('colors',$colors);
     }
+
+    // public function store(){
+    //   return view('welcome');
+    //   dd("In store");
+    // }
+    public function store(Request $request)
+    {
+      dd($request);
+        return \Response::json($response);
+    }
+
+//show all users
+
+    public function show()
+    {
+      $this->authorize('view', auth()->user());
+      $users = User::where('id', '!=', auth()->id())->get();
+      return view('users', compact('users'));
+    }
+
+    public function edit(User $user)
+    {
+      return view('edit', compact('user'));
+    }
+
+    public function update(Request $request, User $user)
+    {
+      $this->authorize('edit', auth()->user());
+      $theuser = User::find($user->id());
+      dd($theuser);
+      $theuser->name = $request['name'];
+      $theuser->role = $request['role'];
+      $theuser->password = $request['password'];
+      $theuser->save();
+      $users = User::where('id', '!=', auth()->id())->get();
+
+      return view('users', compact('users'));
+    }
+
 }

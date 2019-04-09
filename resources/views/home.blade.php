@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('head-spot')
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 <style type="text/css">
     .color_button {
         margin: 1.6%;
@@ -41,9 +42,10 @@
                 <div class="card-header">Customize Your Vehicle</div>
 
                 <div class="card-body">
+
                     <div id="carSelector" class="carousel slide">
-                        <div class="carousel-inner" >
-                            <div class="carousel-item active">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" id="0">
                                 <h3>2019 Porsche 911</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065 526">
                                     <title>car</title>
@@ -54,7 +56,7 @@
                                     <circle cx="909.25" cy="438.75" r="87.25"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item" id="1">
                               <h3>Jaguar I-Pace Electric SUV</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065.23 527">
                                     <title>suv</title>
@@ -66,7 +68,7 @@
                                     <rect class="window" x="615.5" y="54.5" width="171" height="171" rx="8.15"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item" id="2">
                               <h3>2019 Mercedes-Benz Sprinter Crew Van</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065.23 526.66">
                                     </defs><title>van</title>
@@ -79,7 +81,7 @@
                                     <path class="window" d="M200.71,180H352.29a9.71,9.71,0,0,1,9.71,9.71v53.06A108.23,108.23,0,0,1,253.77,351H200.71a9.71,9.71,0,0,1-9.71-9.71V189.71A9.71,9.71,0,0,1,200.71,180Z" transform="translate(437.5 405.16) rotate(-180)"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item" id="3">
                                 <h3>Ford F150 Supercharger</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1065 566">
                                     <title>truck</title>
@@ -89,7 +91,7 @@
                                     <circle cx="885.5" cy="439.5" r="110.5"/>
                                 </svg>
                             </div>
-                            <div class="carousel-item">
+                            <div class="carousel-item" id="4">
                               <h3>Dodge Tomahawk</h3>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 643.5 356.48" style="transform: scale(0.75);">
                                     <title>bike</title>
@@ -153,9 +155,11 @@
                             <label for="formControlRange">Trim size</label>
                             <input type="range" class="form-control-range" id="formControlRange">
                         </div>
+
+                        <button class="btn btn-primary" id="ajaxSubmit" onclick="sendSomething()">Submit</button>
                     </div>
                     <script type="text/javascript">
-                    
+
                         $(document).ready(function() {
                             // $( ".stroke_slider" ).slider( "enable" );
                             $('.carousel').carousel('pause');
@@ -173,6 +177,87 @@
                             $(el).css("stroke",color);
                         }
                     </script>
+                    <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+                          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                          crossorigin="anonymous">
+                    </script> -->
+
+                    <script>
+                        window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+                    </script>
+
+                    <form method="post" action="/home/save">
+                      @csrf
+                      <input type="text" name="blah" value="yes">
+                      <input type="submit">
+                    </form>
+
+                    <script>
+                    /*none of this works lol */
+                    function sendSomething() {
+                    var xmlhttp = new XMLHttpRequest();
+                                xmlhttp.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200) {
+                                      this.innerHtml = this.responseText;
+                                    }
+                                  };
+                                  xmlhttp.open("GET", "/home/save", true);
+                                  xmlhttp.send();
+                    // $(document).ready(function() {
+                    //     $('#ajaxSubmit').click(function (e) {
+                    //         e.preventDefault();
+                    //
+                    //         // var title = $('#carSelector').val();
+                    //         // var body = $('.carouselitem').val();
+                    //         var test = "oh yes";
+                    //
+                    //         $.ajaxSetup({
+                    //           headers: {
+                    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    //           }
+                    //         });
+                    //
+                    //         $.ajax({
+                    //             datatype : "json",
+                    //             type: "POST",
+                    //             url: 'home/save',
+                    //             data: {test : test},
+                    //             success: function( data ) {
+                    //               $("#ajaxResponse").append("<div>"+data.msg+"</div>");
+                    //             }
+                    //         });
+                    //     });
+                    // });
+                    //
+                    //    // jQuery(document).ready(function(){
+                    //    //    jQuery('#ajaxSubmit').click(function(){
+                    //    //
+                    //    //      // $.ajax({
+                    //    //      //                type:'POST',
+                    //    //      //                url:'/getmsg',
+                    //    //      //                data:'name = hello','_token = <?php echo csrf_token() ?>',
+                    //    //      //                success:function(data) {
+                    //    //      //                   $("#msg").html(data.msg);
+                    //    //      //                }
+                    //    //      //             });
+                    //    //
+                    //    //      var x = new XMLHttpRequest();
+                    //    //      x.open("GET", "/home", true);
+                    //    //      x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    //    //      x.setRequestHeader("X-CSRF-TOKEN", '{{ csrf_token() }}');
+                    //    //      x.send();
+                    //    //    //  x.send("fnam";
+                    //    //      x.onreadystatechange = function() {
+                    //    //        if (this.readyState == 4 && this.status == 200) {
+                    //    //          // this.innerHtml = responseText;
+                    //    //        }
+                    //    //      }
+                    //    //    });
+                    //    //  });
+                  }
+                    </script>
+
+
                 </div>
             </div>
         </div>
