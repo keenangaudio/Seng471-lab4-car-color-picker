@@ -24,11 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $colors = [
-            'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive',
-            'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
-        ];
-        return view('home')->with('colors',$colors);
+        if(auth()->user()->isAdmin){
+            $users = User::all()->where('isAdmin', false);
+            return view('users')->with('users', $users);
+        }
+        else{
+            $colors = [
+                'Silver', 'Gray', 'Black', 'Red', 'Maroon', 'Yellow', 'Olive',
+                'Lime', 'Green', 'Aqua', 'Teal', 'Blue', 'Navy', 'Fuchsia', 'Purple',
+            ];
+            return view('home')->with('colors',$colors);
+        }
     }
 
     // public function store(){

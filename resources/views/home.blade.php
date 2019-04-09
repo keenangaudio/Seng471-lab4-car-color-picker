@@ -159,22 +159,50 @@
                         <button class="btn btn-primary" id="ajaxSubmit" onclick="sendSomething()">Submit</button>
                     </div>
                     <script type="text/javascript">
-
+                        var globalCarColor = 'blue';
+                        var globaCarAccentColor = 'blue';
+                        var gloabalSeatColor = 'blue';
+                        var globalTrim = 1;
                         $(document).ready(function() {
                             // $( ".stroke_slider" ).slider( "enable" );
                             $('.carousel').carousel('pause');
 
                             $('#formControlRange').on('change', function() {
                                 let width = $(this).val() / 15;
+                                globalTrim = width;
                                 $('.seat').css("stroke-width",width + 'px');
                             })
                         });
 
                         function colorize(el, color) {
+                            if(el == '.car'){
+                                globalCarColor = color;
+                            }
+                            else if(el == '.car_accent'){
+                                globaCarAccentColor = color;
+                            }
+                            else if(el == '.seat'){
+                                gloabalSeatColor = color;
+                            }
                             $(el).css("fill",color);
                         }
                         function stroke(el, color) {
                             $(el).css("stroke",color);
+                        }
+                        function sendSomething() {
+                            console.log(globalCarColor);
+                            console.log(globaCarAccentColor);
+                            console.log(gloabalSeatColor);
+                            console.log(globalTrim);
+
+                            var xmlhttp = new XMLHttpRequest();
+                            xmlhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                  this.innerHtml = this.responseText;
+                                }
+                              };
+                            xmlhttp.open("GET", "/submitInfo/"+globalCarColor+","+globaCarAccentColor+","+gloabalSeatColor+","+parseInt(globalTrim), true);
+                            xmlhttp.send();
                         }
                     </script>
                     <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -191,71 +219,6 @@
                       <input type="text" name="blah" value="yes">
                       <input type="submit">
                     </form>
-
-                    <script>
-                    /*none of this works lol */
-                    function sendSomething() {
-                    var xmlhttp = new XMLHttpRequest();
-                                xmlhttp.onreadystatechange = function() {
-                                    if (this.readyState == 4 && this.status == 200) {
-                                      this.innerHtml = this.responseText;
-                                    }
-                                  };
-                                  xmlhttp.open("GET", "/home/save", true);
-                                  xmlhttp.send();
-                    // $(document).ready(function() {
-                    //     $('#ajaxSubmit').click(function (e) {
-                    //         e.preventDefault();
-                    //
-                    //         // var title = $('#carSelector').val();
-                    //         // var body = $('.carouselitem').val();
-                    //         var test = "oh yes";
-                    //
-                    //         $.ajaxSetup({
-                    //           headers: {
-                    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    //           }
-                    //         });
-                    //
-                    //         $.ajax({
-                    //             datatype : "json",
-                    //             type: "POST",
-                    //             url: 'home/save',
-                    //             data: {test : test},
-                    //             success: function( data ) {
-                    //               $("#ajaxResponse").append("<div>"+data.msg+"</div>");
-                    //             }
-                    //         });
-                    //     });
-                    // });
-                    //
-                    //    // jQuery(document).ready(function(){
-                    //    //    jQuery('#ajaxSubmit').click(function(){
-                    //    //
-                    //    //      // $.ajax({
-                    //    //      //                type:'POST',
-                    //    //      //                url:'/getmsg',
-                    //    //      //                data:'name = hello','_token = <?php echo csrf_token() ?>',
-                    //    //      //                success:function(data) {
-                    //    //      //                   $("#msg").html(data.msg);
-                    //    //      //                }
-                    //    //      //             });
-                    //    //
-                    //    //      var x = new XMLHttpRequest();
-                    //    //      x.open("GET", "/home", true);
-                    //    //      x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    //    //      x.setRequestHeader("X-CSRF-TOKEN", '{{ csrf_token() }}');
-                    //    //      x.send();
-                    //    //    //  x.send("fnam";
-                    //    //      x.onreadystatechange = function() {
-                    //    //        if (this.readyState == 4 && this.status == 200) {
-                    //    //          // this.innerHtml = responseText;
-                    //    //        }
-                    //    //      }
-                    //    //    });
-                    //    //  });
-                  }
-                    </script>
 
 
                 </div>
