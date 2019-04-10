@@ -156,7 +156,7 @@
                             <input type="range" class="form-control-range" id="formControlRange">
                         </div>
 
-                        <button class="btn btn-primary" id="ajaxSubmit" onclick="sendSomething()">Submit</button>
+                        <button class="btn btn-primary" id="ajaxSubmit" onclick="sendSomething()" style="float:right;">Submit</button>
                     </div>
                     <script type="text/javascript">
                         var globalCarColor = 'blue';
@@ -226,8 +226,6 @@
 
                     <form method="post" action="/home/save">
                       @csrf
-                      <input type="text" name="blah" value="yes">
-                      <input type="submit">
                     </form>
 
 
